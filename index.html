@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AutoParts MX — Refacciones Vehiculares</title>
+  <meta name="description" content="La mejor tienda de refacciones automotrices en Ciudad Juárez."/>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DJBRQTYGZ3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-DJBRQTYGZ3');
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css?v=4"/>
+</head>
+
+<body>
+
+<nav id="navbar">
+  <div class="container nav-inner">
+    <!-- Hamburger (solo móvil) -->
+    <button class="hamburger" id="hamburgerBtn" aria-label="Menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <a href="index.html" class="nav-logo">AUTO<span>PARTS</span> MX</a>
+
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Inicio</a></li>
+      <li><a href="catalogo.html">Catálogo</a></li>
+      <li><a href="#ubicacion">Mi Ubicación</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <a href="login.html" class="nav-auth-btn" id="navAuthBtn">INICIAR SESIÓN / REGISTRARSE</a>
+      <button type="button" class="nav-user-btn" id="navUserBtn" style="display:none"></button>
+      <button type="button" class="nav-logout-btn" id="navLogoutBtn" style="display:none">CERRAR SESIÓN</button>
+    </div>
+  </div>
+</nav>
+
+<!-- MENÚ MÓVIL DESPLEGABLE -->
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Menú de navegación">
+  <ul>
+    <li><a href="index.html" class="active" onclick="closeMobileMenu()">Inicio</a></li>
+    <li><a href="catalogo.html" onclick="closeMobileMenu()">Catálogo</a></li>
+    <li><a href="#ubicacion" onclick="closeMobileMenu()">Mi Ubicación</a></li>
+    <li><a href="#nosotros" onclick="closeMobileMenu()">Nosotros</a></li>
+    <li><a href="#contacto" onclick="closeMobileMenu()">Contacto</a></li>
+  </ul>
+  <div class="mobile-menu-actions">
+    <a href="login.html" class="nav-auth-btn" id="mobileAuthBtn">INICIAR SESIÓN / REGISTRARSE</a>
+    <button type="button" class="nav-user-btn" id="mobileUserBtn" style="display:none"></button>
+    <button type="button" class="nav-logout-btn" id="mobileLogoutBtn" style="display:none">CERRAR SESIÓN</button>
+  </div>
+</div>
+
+<!-- CARRUSEL -->
+<section class="carousel-section" id="inicio">
+  <div class="carousel-track-wrap">
+    <div class="carousel-track" id="carTrack">
+
+      <div class="carousel-slide slide-1 active">
+        <img src="img/carrusel1.jpg" class="slide-img" alt="Motor y Transmisión"/>
+        <div class="slide-overlay"></div>
+        <div class="slide-content">
+          <div class="slide-tag"><span class="tag">Oferta del mes</span></div>
+          <h2 class="slide-title">MOTOR Y<br/><em>TRANSMISIÓN</em></h2>
+          <p class="slide-desc">Piezas originales y aftermarket con garantía de 12 meses. Marcas líderes como Bosch, Gates y Dayco.</p>
+          <div class="slide-actions">
+            <a href="catalogo.html?cat=Motor" class="btn-primary">VER MOTOR</a>
+            <a href="catalogo.html" class="btn-outline">TODO EL CATÁLOGO</a>
+          </div>
+        </div>
+        <div class="slide-bar"></div>
+      </div>
+
+      <div class="carousel-slide slide-2">
+        <img src="img/carrusel2.jpg" class="slide-img" alt="Sistema de Frenos"/>
+        <div class="slide-overlay"></div>
+        <div class="slide-content">
+          <div class="slide-tag"><span class="tag">Nuevo stock</span></div>
+          <h2 class="slide-title">SISTEMA DE<br/><em>FRENOS</em></h2>
+          <p class="slide-desc">Balatas, discos y cilindros maestros para más de 2,000 modelos. Seguridad primero en cada kilómetro.</p>
+          <div class="slide-actions">
+            <a href="catalogo.html?cat=Frenos" class="btn-primary">VER FRENOS</a>
+            <a href="catalogo.html" class="btn-outline">TODO EL CATÁLOGO</a>
+          </div>
+        </div>
+        <div class="slide-bar"></div>
+      </div>
+
+      <div class="carousel-slide slide-3">
+        <img src="img/carrusel3.jpg" class="slide-img" alt="Eléctrico Automotriz"/>
+        <div class="slide-overlay"></div>
+        <div class="slide-content">
+          <div class="slide-tag"><span class="tag">Alta rotación</span></div>
+          <h2 class="slide-title">ELÉCTRICO<br/><em>AUTOMOTRIZ</em></h2>
+          <p class="slide-desc">Alternadores, arrancadores, baterías y sensores. Compatibilidad por VIN en tiempo real.</p>
+          <div class="slide-actions">
+            <a href="catalogo.html?cat=Eléctrico" class="btn-primary">VER ELÉCTRICO</a>
+            <a href="catalogo.html" class="btn-outline">TODO EL CATÁLOGO</a>
+          </div>
+        </div>
+        <div class="slide-bar"></div>
+      </div>
+
+      <div class="carousel-slide slide-4">
+        <img src="img/carrusel4.jpg" class="slide-img" alt="Suspensión y Dirección"/>
+        <div class="slide-overlay"></div>
+        <div class="slide-content">
+          <div class="slide-tag"><span class="tag">Envío express</span></div>
+          <h2 class="slide-title">SUSPENSIÓN<br/><em>Y DIRECCIÓN</em></h2>
+          <p class="slide-desc">Amortiguadores, resortes, rótulas y extremos. Piezas de precisión para un manejo firme.</p>
+          <div class="slide-actions">
+            <a href="catalogo.html?cat=Suspensión" class="btn-primary">VER SUSPENSIÓN</a>
+            <a href="catalogo.html" class="btn-outline">TODO EL CATÁLOGO</a>
+          </div>
+        </div>
+        <div class="slide-bar"></div>
+      </div>
+
+      <div class="carousel-slide slide-5">
+        <img src="img/carrusel5.jpg" class="slide-img" alt="Línea Performance"/>
+        <div class="slide-overlay"></div>
+        <div class="slide-content">
+          <div class="slide-tag"><span class="tag">Premium</span></div>
+          <h2 class="slide-title">LÍNEA<br/><em>PERFORMANCE</em></h2>
+          <p class="slide-desc">Mejora el rendimiento de tu vehículo. Filtros K&N, escapes Flowmaster, chips APR y más.</p>
+          <div class="slide-actions">
+            <a href="catalogo.html?cat=Performance" class="btn-primary">VER PERFORMANCE</a>
+            <a href="catalogo.html" class="btn-outline">TODO EL CATÁLOGO</a>
+          </div>
+        </div>
+        <div class="slide-bar"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <button class="carousel-ctrl prev" onclick="carMove(-1)">&#8592;</button>
+  <button class="carousel-ctrl next" onclick="carMove(1)">&#8594;</button>
+  <div class="carousel-dots" id="carDots"></div>
+  <div class="carousel-counter"><span id="carCurrent">1</span> / 5</div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="container stats-inner">
+    <div>
+      <div class="stat-val">+40</div>
+      <div class="stat-lbl">Refacciones</div>
+    </div>
+    <div>
+      <div class="stat-val">15+</div>
+      <div class="stat-lbl">Marcas líderes</div>
+    </div>
+    <div>
+      <div class="stat-val">12</div>
+      <div class="stat-lbl">Meses garantía</div>
+    </div>
+    <div>
+      <div class="stat-val">24h</div>
+      <div class="stat-lbl">Envío express</div>
+    </div>
+  </div>
+</div>
+
+<!-- MARCAS -->
+<div class="brands-strip">
+  <div class="brands-track">
+    <span class="brand-chip">BOSCH</span>
+    <span class="brand-chip">NGK</span>
+    <span class="brand-chip">MONROE</span>
+    <span class="brand-chip">BREMBO</span>
+    <span class="brand-chip">DENSO</span>
+    <span class="brand-chip">MOOG</span>
+    <span class="brand-chip">GATES</span>
+    <span class="brand-chip">DAYCO</span>
+    <span class="brand-chip">KYB</span>
+    <span class="brand-chip">SKF</span>
+    <span class="brand-chip">K&N</span>
+    <span class="brand-chip">BILSTEIN</span>
+    <span class="brand-chip">MISHIMOTO</span>
+    <span class="brand-chip">DELPHI</span>
+    <span class="brand-chip">MOBIL 1</span>
+
+    <span class="brand-chip">BOSCH</span>
+    <span class="brand-chip">NGK</span>
+    <span class="brand-chip">MONROE</span>
+    <span class="brand-chip">BREMBO</span>
+    <span class="brand-chip">DENSO</span>
+    <span class="brand-chip">MOOG</span>
+    <span class="brand-chip">GATES</span>
+    <span class="brand-chip">DAYCO</span>
+    <span class="brand-chip">KYB</span>
+    <span class="brand-chip">SKF</span>
+    <span class="brand-chip">K&N</span>
+    <span class="brand-chip">BILSTEIN</span>
+    <span class="brand-chip">MISHIMOTO</span>
+    <span class="brand-chip">DELPHI</span>
+    <span class="brand-chip">MOBIL 1</span>
+  </div>
+</div>
+
+<!-- CATEGORÍAS -->
+<section style="background:var(--bg)">
+  <div class="container">
+    <p class="section-label">Explora por categoría</p>
+    <h2 class="section-title">¿Qué<br/>Necesitas?</h2>
+    <p class="section-sub">Encuentra la refacción que buscas navegando por nuestras categorías especializadas.</p>
+
+    <div class="cats-grid">
+      <a href="catalogo.html?cat=Motor" class="cat-card">
+        <div class="cat-icon">🔧</div>
+        <div class="cat-name">MOTOR</div>
+        <div class="cat-count">Filtros · Bujías · Distribución</div>
+      </a>
+
+      <a href="catalogo.html?cat=Frenos" class="cat-card">
+        <div class="cat-icon">🛞</div>
+        <div class="cat-name">FRENOS</div>
+        <div class="cat-count">Balatas · Discos · Cilindros</div>
+      </a>
+
+      <a href="catalogo.html?cat=Eléctrico" class="cat-card">
+        <div class="cat-icon">⚡</div>
+        <div class="cat-name">ELÉCTRICO</div>
+        <div class="cat-count">Alternadores · Sensores · Baterías</div>
+      </a>
+
+      <a href="catalogo.html?cat=Suspensión" class="cat-card">
+        <div class="cat-icon">🚗</div>
+        <div class="cat-name">SUSPENSIÓN</div>
+        <div class="cat-count">Amortiguadores · Rótulas · Resortes</div>
+      </a>
+
+      <a href="catalogo.html?cat=Performance" class="cat-card">
+        <div class="cat-icon">🏁</div>
+        <div class="cat-name">PERFORMANCE</div>
+        <div class="cat-count">Escapes · Turbos · Chips</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- GEOLOCALIZACIÓN -->
+<section class="geo-section" id="ubicacion">
+  <div class="container">
+    <p class="section-label">Encuéntranos</p>
+    <h2 class="section-title">Tu Ubicación<br/>y Sucursales</h2>
+    <p class="section-sub">Detecta tu posición y encuentra la sucursal AutoParts MX más cercana a ti.</p>
+
+    <div class="geo-inner">
+      <div class="geo-panel">
+        <div class="geo-header">
+          <div class="geo-icon">📍</div>
+          <div class="geo-header-text">
+            <h3>UBICACIÓN ACTUAL</h3>
+            <p>Datos obtenidos de tu dispositivo</p>
+          </div>
+        </div>
+
+        <div class="geo-data">
+          <div class="geo-row">
+            <span class="geo-row-icon">🏙️</span>
+            <div>
+              <div class="geo-row-label">Ciudad / Municipio</div>
+              <div class="geo-row-value" id="geoCity">Presiona el botón para detectar</div>
+            </div>
+          </div>
+
+          <div class="geo-row">
+            <span class="geo-row-icon">🌐</span>
+            <div>
+              <div class="geo-row-label">Coordenadas GPS</div>
+              <div class="geo-row-value" id="geoCoords">— / —</div>
+            </div>
+          </div>
+
+          <div class="geo-row">
+            <span class="geo-row-icon">⛰️</span>
+            <div>
+              <div class="geo-row-label">Altitud</div>
+              <div class="geo-row-value" id="geoAlt">—</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="geo-accuracy" id="geoAccuracy" style="display:none"></div>
+
+        <button class="geo-btn" id="geoBtn" onclick="requestGeo()" style="margin-top:20px">
+          <span class="geo-btn-icon">📍</span> DETECTAR MI UBICACIÓN
+        </button>
+
+        <div id="geoBranches" style="display:none">
+          <div class="geo-branches" style="margin-top:24px">
+            <div class="geo-branches-title">Sucursales más cercanas</div>
+            <div id="geoBranchesList"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="geo-map-wrap">
+        <div class="geo-live-badge" id="geoLiveBadge">
+          <span class="geo-live-dot"></span> EN VIVO
+        </div>
+
+        <div class="geo-map-placeholder" id="geoMapPlaceholder">
+          <div class="geo-map-placeholder-icon">🗺️</div>
+          <div class="geo-map-placeholder-text">El mapa aparecerá cuando detectes tu ubicación</div>
+        </div>
+
+        <iframe id="geoMapFrame" title="Mapa" style="display:none" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NOSOTROS -->
+<section id="nosotros" style="background:var(--bg)">
+  <div class="container">
+    <p class="section-label">¿Por qué elegirnos?</p>
+    <h2 class="section-title">Calidad y<br/>Confianza</h2>
+
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🔍</div>
+        <div class="feature-title">BÚSQUEDA POR VIN</div>
+        <div class="feature-desc">Encuentra refacciones 100% compatibles con tu vehículo ingresando el número de serie VIN.</div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🚚</div>
+        <div class="feature-title">ENVÍO EXPRESS</div>
+        <div class="feature-desc">Entrega en 24 hrs en Ciudad Juárez y Chihuahua. Envíos a todo México en 3–5 días hábiles.</div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">✅</div>
+        <div class="feature-title">GARANTÍA 12 MESES</div>
+        <div class="feature-desc">Todas nuestras refacciones tienen garantía de un año contra defectos de fabricación.</div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">💬</div>
+        <div class="feature-title">ASESORÍA TÉCNICA</div>
+        <div class="feature-desc">Técnicos certificados te orientan en la selección e instalación correcta de cada pieza.</div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🏷️</div>
+        <div class="feature-title">MEJORES PRECIOS</div>
+        <div class="feature-desc">Precios competitivos directamente con distribuidores autorizados. Sin intermediarios.</div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🔒</div>
+        <div class="feature-title">COMPRA SEGURA</div>
+        <div class="feature-desc">Transacciones protegidas con cifrado SSL. Tu información siempre está segura.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="background:var(--surface);padding:60px 0">
+  <div class="container">
+    <div class="cta-banner">
+      <div class="cta-text">
+        <h2>+40 REFACCIONES<br/><em>LISTAS PARA ENVÍO</em></h2>
+        <p>Catálogo actualizado con las mejores marcas. Motor, frenos, suspensión, eléctrico y performance en un solo lugar.</p>
+      </div>
+
+      <div class="cta-actions">
+        <a href="catalogo.html" class="btn-primary">VER CATÁLOGO COMPLETO</a>
+        <a href="#contacto" class="btn-outline">CONTACTAR ASESOR</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto" class="contact-section">
+  <div class="container">
+    <div class="contact-header">
+      <p class="section-label">Estamos aquí</p>
+      <h2 class="section-title">Contacto</h2>
+      <p class="section-sub">
+        Dinos qué refacción necesitas y un asesor de AutoParts MX te ayudará a encontrar la parte correcta para tu vehículo.
+      </p>
+    </div>
+
+    <div class="contact-layout">
+
+      <div class="contact-info-panel">
+        <span class="contact-kicker">Asesoría personalizada</span>
+
+        <h3>Encuentra la pieza correcta</h3>
+
+        <p>
+          Comparte los datos principales de la refacción que buscas. Puedes incluir modelo, año,
+          marca del vehículo o cualquier detalle que nos ayude a ubicarla.
+        </p>
+
+        <div class="contact-mini-list">
+
+          <div class="contact-mini-item">
+            <div class="contact-mini-icon">📧</div>
+            <div>
+              <strong>Respuesta por correo</strong>
+              <small>Te contactaremos lo antes posible.</small>
+            </div>
+          </div>
+
+          <div class="contact-mini-item">
+            <div class="contact-mini-icon">🔧</div>
+            <div>
+              <strong>Búsqueda de refacciones</strong>
+              <small>Motor, frenos, suspensión, eléctrico y más.</small>
+            </div>
+          </div>
+
+          <div class="contact-mini-item">
+            <div class="contact-mini-icon">📍</div>
+            <div>
+              <strong>Ciudad Juárez, Chihuahua</strong>
+              <small>Atención local y seguimiento directo.</small>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <form class="contact-form" id="contactForm">
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="contactName">Nombre completo</label>
+            <input 
+              type="text" 
+              id="contactName" 
+              name="nombre" 
+              placeholder="Ej. Erick Vargas"
+              required
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="contactEmail">Correo electrónico</label>
+            <input 
+              type="email" 
+              id="contactEmail" 
+              name="correo" 
+              placeholder="Ej. correo@ejemplo.com"
+              required
+            >
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="contactMessage">¿Qué parte de vehículo buscas?</label>
+          <textarea 
+            id="contactMessage" 
+            name="mensaje" 
+            rows="6" 
+            placeholder="Ej. Busco balatas delanteras para Nissan Versa 2020..."
+            required
+          ></textarea>
+        </div>
+
+        <button type="submit" class="contact-submit">
+          Enviar solicitud
+        </button>
+
+        <p class="contact-note">
+          Al enviar este formulario, tu solicitud será recibida por el equipo de AutoParts MX.
+        </p>
+
+        <p id="contactStatus" class="contact-status"></p>
+
+      </form>
+
+    </div>
+  </div>
+</section>
+
+        <!-- PALETA DE COLORES -->
+<section class="color-palette-section">
+  <div class="container">
+    <div class="palette-header">
+      <p class="section-label">Identidad visual</p>
+      <h2 class="section-title">Paleta de colores</h2>
+      <p class="section-sub">
+        Estos son los colores principales utilizados en la interfaz de AutoParts MX.
+      </p>
+    </div>
+
+    <div class="palette-grid">
+      <div class="palette-card">
+        <div class="palette-color" style="background:#0d0d0d;"></div>
+        <div class="palette-name">Fondo principal</div>
+        <div class="palette-hex">#0D0D0D</div>
+      </div>
+
+      <div class="palette-card">
+        <div class="palette-color" style="background:#161616;"></div>
+        <div class="palette-name">Superficie</div>
+        <div class="palette-hex">#161616</div>
+      </div>
+
+      <div class="palette-card">
+        <div class="palette-color" style="background:#1e1e1e;"></div>
+        <div class="palette-name">Tarjetas</div>
+        <div class="palette-hex">#1E1E1E</div>
+      </div>
+
+      <div class="palette-card">
+        <div class="palette-color" style="background:#2a2a2a;"></div>
+        <div class="palette-name">Bordes</div>
+        <div class="palette-hex">#2A2A2A</div>
+      </div>
+
+      <div class="palette-card">
+        <div class="palette-color" style="background:#e8500a;"></div>
+        <div class="palette-name">Acento naranja</div>
+        <div class="palette-hex">#E8500A</div>
+      </div>
+
+      <div class="palette-card">
+        <div class="palette-color" style="background:#f5a623;"></div>
+        <div class="palette-name">Acento secundario</div>
+        <div class="palette-hex">#F5A623</div>
+      </div>
+
+      <div class="palette-card">
+        <div class="palette-color palette-light" style="background:#f0ece4;"></div>
+        <div class="palette-name">Texto principal</div>
+        <div class="palette-hex">#F0ECE4</div>
+      </div>
+
+      <div class="palette-card">
+        <div class="palette-color" style="background:#7a7570;"></div>
+        <div class="palette-name">Texto secundario</div>
+        <div class="palette-hex">#7A7570</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+
+      <div>
+        <div class="footer-brand-logo">AUTO<span>PARTS</span> MX</div>
+        <p class="footer-brand-desc">Tu distribuidora de refacciones automotrices en Ciudad Juárez. Calidad, garantía y entrega rápida.</p>
+      </div>
+
+      <div>
+        <div class="footer-col-title">NAVEGACIÓN</div>
+        <ul class="footer-col-links">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="catalogo.html">Catálogo</a></li>
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-col-title">CATEGORÍAS</div>
+        <ul class="footer-col-links">
+          <li><a href="catalogo.html?cat=Motor">Motor</a></li>
+          <li><a href="catalogo.html?cat=Frenos">Frenos</a></li>
+          <li><a href="catalogo.html?cat=Eléctrico">Eléctrico</a></li>
+          <li><a href="catalogo.html?cat=Suspensión">Suspensión</a></li>
+          <li><a href="catalogo.html?cat=Performance">Performance</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-col-title">SOPORTE</div>
+        <ul class="footer-col-links">
+          <li><a href="#">Garantías</a></li>
+          <li><a href="#">Envíos</a></li>
+          <li><a href="#">Devoluciones</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 AutoParts MX — Todos los derechos reservados</p>
+      <div class="footer-legal">
+        <a href="#">Privacidad</a>
+        <a href="#">Términos</a>
+        <a href="#">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- EMAILJS -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="contact.js"></script>
+
+<!-- SCRIPTS DEL SITIO -->
+<script src="auth.js"></script>
+<script src="carousel.js"></script>
+<script src="geo.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    if (typeof initCarousel === 'function') initCarousel();
+    if (typeof updateNavbarAuthUI === 'function') updateNavbarAuthUI();
+  });
+</script>
+
+<!-- HAMBURGER MENU -->
+<script>
+  (function() {
+    const btn = document.getElementById('hamburgerBtn');
+    const menu = document.getElementById('mobileMenu');
+
+    function toggleMenu() {
+      const isOpen = menu.classList.toggle('open');
+      btn.classList.toggle('open', isOpen);
+      btn.setAttribute('aria-expanded', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    }
+
+    window.closeMobileMenu = function() {
+      menu.classList.remove('open');
+      btn.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    };
+
+    btn.addEventListener('click', toggleMenu);
+
+    // Sync auth buttons from desktop to mobile
+    function syncAuthMobile() {
+      const authBtn = document.getElementById('navAuthBtn');
+      const userBtn = document.getElementById('navUserBtn');
+      const logoutBtn = document.getElementById('navLogoutBtn');
+      const mAuthBtn = document.getElementById('mobileAuthBtn');
+      const mUserBtn = document.getElementById('mobileUserBtn');
+      const mLogoutBtn = document.getElementById('mobileLogoutBtn');
+
+      if (!mAuthBtn) return;
+
+      // Sync visibility
+      mAuthBtn.style.display = authBtn ? authBtn.style.display : '';
+      if (userBtn) {
+        mUserBtn.style.display = userBtn.style.display;
+        mUserBtn.textContent = userBtn.textContent;
+      }
+      if (logoutBtn) {
+        mLogoutBtn.style.display = logoutBtn.style.display;
+      }
+
+      mLogoutBtn.addEventListener('click', function() {
+        logoutBtn && logoutBtn.click();
+        closeMobileMenu();
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', syncAuthMobile);
+
+    // Close on resize to desktop
+    window.addEventListener('resize', function() {
+      if (window.innerWidth > 768) closeMobileMenu();
+    });
+  })();
+</script>
+
+</body>
+</html>
