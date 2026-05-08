@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Acerca de mí — AutoParts MX</title>
+  <meta name="description" content="Información sobre el desarrollador del sitio AutoParts MX."/>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DJBRQTYGZ3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-DJBRQTYGZ3');
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css?v=4"/>
+
+  <style>
+    /* ── Estilos exclusivos de Acerca de mí ── */
+    .acerca-hero {
+      min-height: calc(100vh - 64px);
+      background: var(--bg);
+      display: flex;
+      align-items: center;
+      padding: 80px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* cuadrícula animada de fondo */
+    .acerca-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 50px 50px;
+      opacity: .25;
+      animation: gridPan 25s linear infinite;
+      pointer-events: none;
+    }
+
+    /* destello naranja esquina */
+    .acerca-hero::after {
+      content: '';
+      position: absolute;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(232,80,10,.12) 0%, transparent 70%);
+      top: -150px; right: -150px;
+      pointer-events: none;
+    }
+
+    .acerca-grid {
+      position: relative; z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    /* ── Panel izquierdo: texto ── */
+    .acerca-info {}
+
+    .acerca-rol {
+      font-size: .75rem; font-weight: 700;
+      letter-spacing: .22em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 12px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .acerca-rol::before {
+      content: '';
+      display: inline-block;
+      width: 32px; height: 2px;
+      background: var(--accent);
+    }
+
+    .acerca-nombre {
+      font-family: var(--font-disp);
+      font-size: clamp(2.8rem, 5vw, 4.5rem);
+      letter-spacing: .04em;
+      line-height: .95;
+      margin-bottom: 20px;
+    }
+    .acerca-nombre em {
+      font-style: normal;
+      color: var(--accent);
+    }
+
+    .acerca-desc {
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.8;
+      max-width: 480px;
+      margin-bottom: 36px;
+      border-left: 3px solid var(--accent);
+      padding-left: 20px;
+    }
+
+    /* Datos académicos */
+    .acerca-datos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 36px;
+    }
+    .dato-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 18px;
+      transition: border-color var(--trans);
+    }
+    .dato-card:hover { border-color: var(--accent); }
+    .dato-label {
+      font-size: .65rem; font-weight: 700;
+      letter-spacing: .14em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 4px;
+    }
+    .dato-valor {
+      font-family: var(--font-disp);
+      font-size: 1rem; letter-spacing: .06em;
+      color: var(--text);
+    }
+
+    /* Tech stack */
+    .tech-strip {
+      display: flex; gap: 10px; flex-wrap: wrap;
+    }
+    .tech-chip {
+      font-size: .72rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      padding: 6px 14px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      color: var(--muted);
+      transition: all var(--trans);
+    }
+    .tech-chip:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgba(232,80,10,.08);
+    }
+
+    /* ── Panel derecho: credencial ── */
+    .acerca-card-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .credencial-frame {
+      position: relative;
+    }
+
+    /* Glow detrás de la credencial */
+    .credencial-frame::before {
+      content: '';
+      position: absolute;
+      inset: -20px;
+      background: radial-gradient(circle, rgba(232,80,10,.18) 0%, transparent 70%);
+      border-radius: 24px;
+      filter: blur(20px);
+      z-index: 0;
+    }
+
+    .credencial-img {
+      position: relative; z-index: 1;
+      width: 100%;
+      max-width: 340px;
+      border-radius: 18px;
+      box-shadow:
+        0 0 0 1px rgba(232,80,10,.3),
+        0 40px 80px rgba(0,0,0,.7),
+        0 0 60px rgba(232,80,10,.12);
+      transition: transform .4s cubic-bezier(.22,1,.36,1), box-shadow .4s ease;
+    }
+    .credencial-img:hover {
+      transform: translateY(-8px) rotate(1deg);
+      box-shadow:
+        0 0 0 2px rgba(232,80,10,.5),
+        0 60px 100px rgba(0,0,0,.8),
+        0 0 80px rgba(232,80,10,.2);
+    }
+
+    /* Badge flotante */
+    .credencial-badge {
+      position: absolute;
+      bottom: -14px; right: -14px;
+      z-index: 2;
+      background: var(--accent);
+      color: #fff;
+      font-family: var(--font-disp);
+      font-size: .85rem;
+      letter-spacing: .1em;
+      padding: 10px 18px;
+      border-radius: var(--radius);
+      box-shadow: 0 8px 24px rgba(232,80,10,.4);
+      white-space: nowrap;
+    }
+
+    /* ── Sección de proyecto ── */
+    .proyecto-section {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 80px 0;
+    }
+
+    .proyecto-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+
+    .proyecto-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--accent);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      transition: transform var(--trans), box-shadow var(--trans);
+    }
+    .proyecto-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0,0,0,.4);
+    }
+    .proyecto-card-icon { font-size: 2rem; margin-bottom: 14px; }
+    .proyecto-card-title {
+      font-family: var(--font-disp);
+      font-size: 1.1rem; letter-spacing: .06em; margin-bottom: 8px;
+    }
+    .proyecto-card-desc { color: var(--muted); font-size: .88rem; line-height: 1.6; }
+
+    /* Responsive */
+    @media(max-width: 900px) {
+      .acerca-grid { grid-template-columns: 1fr; gap: 48px; }
+      .acerca-card-wrap { order: -1; }
+      .credencial-img { max-width: 280px; }
+      .proyecto-grid { grid-template-columns: 1fr; }
+    }
+    @media(max-width: 480px) {
+      .acerca-datos { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════ NAVBAR ═══════════════ -->
+<nav id="navbar">
+  <div class="container nav-inner">
+    <button class="hamburger" id="hamburgerBtn" aria-label="Menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <a href="index.html" class="nav-logo">AUTO<span>PARTS</span> MX</a>
+
+    <ul class="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="catalogo.html">Catálogo</a></li>
+      <li><a href="index.html#ubicacion">Mi Ubicación</a></li>
+      <li><a href="acerca.html" class="active">Acerca de mí</a></li>
+      <li><a href="index.html#contacto">Contacto</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <a href="login.html" class="nav-auth-btn" id="navAuthBtn">INICIAR SESIÓN / REGISTRARSE</a>
+      <button type="button" class="nav-user-btn" id="navUserBtn" style="display:none"></button>
+      <button type="button" class="nav-logout-btn" id="navLogoutBtn" style="display:none">CERRAR SESIÓN</button>
+    </div>
+  </div>
+
+  </div>
+</nav>
+
+<!-- MENÚ MÓVIL DESPLEGABLE -->
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Menú de navegación">
+  <ul>
+    <li><a href="index.html"            onclick="closeMobileMenu()">Inicio</a></li>
+    <li><a href="catalogo.html"         onclick="closeMobileMenu()">Catálogo</a></li>
+    <li><a href="index.html#ubicacion"  onclick="closeMobileMenu()">Mi Ubicación</a></li>
+    <li><a href="acerca.html" class="active" onclick="closeMobileMenu()">Acerca de mí</a></li>
+    <li><a href="index.html#contacto"   onclick="closeMobileMenu()">Contacto</a></li>
+  </ul>
+  <div class="mobile-menu-actions">
+    <a href="login.html" class="nav-auth-btn" id="mobileAuthBtn">INICIAR SESIÓN / REGISTRARSE</a>
+    <button type="button" class="nav-user-btn"    id="mobileUserBtn"  style="display:none"></button>
+    <button type="button" class="nav-logout-btn"  id="mobileLogoutBtn" style="display:none">CERRAR SESIÓN</button>
+  </div>
+</div>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<section class="acerca-hero">
+  <div class="container">
+    <div class="acerca-grid">
+
+      <!-- Info -->
+      <div class="acerca-info">
+        <div class="acerca-rol">Desarrollador Web</div>
+
+        <h1 class="acerca-nombre">ERICK<br/><em>VARGAS</em></h1>
+
+        <p class="acerca-desc">
+          Estudiante de la Universidad Autónoma de Ciudad Juárez (UACJ), Instituto de Arquitectura,
+          Diseño y Arte (IADA). Apasionado por el desarrollo web y las tecnologías modernas.
+          Este proyecto fue desarrollado durante el ciclo Enero–Mayo 2026.
+        </p>
+
+        <div class="acerca-datos">
+          <div class="dato-card">
+            <div class="dato-label">Universidad</div>
+            <div class="dato-valor">UACJ</div>
+          </div>
+          <div class="dato-card">
+            <div class="dato-label">Instituto</div>
+            <div class="dato-valor">IADA</div>
+          </div>
+          <div class="dato-card">
+            <div class="dato-label">Proyecto</div>
+            <div class="dato-valor">Refacciones MX</div>
+          </div>
+          <div class="dato-card">
+            <div class="dato-label">Ciclo</div>
+            <div class="dato-valor">Ene–May 2026</div>
+          </div>
+        </div>
+
+        <div class="tech-strip">
+          <span class="tech-chip">HTML5</span>
+          <span class="tech-chip">CSS3</span>
+          <span class="tech-chip">JavaScript</span>
+          <span class="tech-chip">PHP</span>
+          <span class="tech-chip">MySQL</span>
+          <span class="tech-chip">Google Analytics</span>
+          <span class="tech-chip">OpenStreetMap</span>
+        </div>
+      </div>
+
+      <!-- Credencial -->
+      <div class="acerca-card-wrap">
+        <div class="credencial-frame">
+          <img
+            class="credencial-img"
+            src="img/acerca.jpg"
+            alt="Credencial de Erick Vargas — UACJ IADA"
+          />
+          <div class="credencial-badge">🎓 UACJ · IADA 2026</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ SOBRE EL PROYECTO ═══════════════ -->
+<section class="proyecto-section">
+  <div class="container">
+    <p class="section-label">Sobre el proyecto</p>
+    <h2 class="section-title">AutoParts MX<br/>¿Cómo fue construido?</h2>
+    <p class="section-sub">Sitio web completo de comercio electrónico de refacciones automotrices desarrollado para la materia de programación web.</p>
+
+    <div class="proyecto-grid">
+      <div class="proyecto-card">
+        <div class="proyecto-card-icon">🎨</div>
+        <div class="proyecto-card-title">DISEÑO & FRONTEND</div>
+        <div class="proyecto-card-desc">
+          Interfaz oscura estilo automotriz construida con HTML5, CSS3 y JavaScript puro.
+          Diseño responsivo con carrusel animado, geolocalización en tiempo real y catálogo interactivo.
+        </div>
+      </div>
+      <div class="proyecto-card">
+        <div class="proyecto-card-icon">⚙️</div>
+        <div class="proyecto-card-title">BACKEND & BASE DE DATOS</div>
+        <div class="proyecto-card-desc">
+          Sistema de autenticación con PHP y MySQL en servidor AwardSpace.
+          Registro e inicio de sesión de usuarios con contraseñas encriptadas y manejo de sesiones seguro.
+        </div>
+      </div>
+      <div class="proyecto-card">
+        <div class="proyecto-card-icon">🔌</div>
+        <div class="proyecto-card-title">API & SERVICIOS</div>
+        <div class="proyecto-card-desc">
+          Catálogo propio en JSON con 40 refacciones reales. Geolocalización con Nominatim y
+          OpenStreetMap. Google Analytics integrado para análisis de visitas y comportamiento.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-logo">AUTO<span>PARTS</span> MX</div>
+        <p class="footer-brand-desc">Tu distribuidora de refacciones automotrices en Ciudad Juárez. Calidad, garantía y entrega rápida.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">NAVEGACIÓN</div>
+        <ul class="footer-col-links">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="catalogo.html">Catálogo</a></li>
+          <li><a href="acerca.html">Acerca de mí</a></li>
+          <li><a href="index.html#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">CATEGORÍAS</div>
+        <ul class="footer-col-links">
+          <li><a href="catalogo.html?cat=Motor">Motor</a></li>
+          <li><a href="catalogo.html?cat=Frenos">Frenos</a></li>
+          <li><a href="catalogo.html?cat=Eléctrico">Eléctrico</a></li>
+          <li><a href="catalogo.html?cat=Suspensión">Suspensión</a></li>
+          <li><a href="catalogo.html?cat=Performance">Performance</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">SOPORTE</div>
+        <ul class="footer-col-links">
+          <li><a href="#">Garantías</a></li>
+          <li><a href="#">Envíos</a></li>
+          <li><a href="#">Devoluciones</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 AutoParts MX — Erick Vargas · UACJ IADA</p>
+      <div class="footer-legal">
+        <a href="#">Privacidad</a>
+        <a href="#">Términos</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="auth.js"></script>
+
+<!-- HAMBURGER MENU -->
+<script>
+  (function() {
+    const btn  = document.getElementById('hamburgerBtn');
+    const menu = document.getElementById('mobileMenu');
+
+    function toggleMenu() {
+      const isOpen = menu.classList.toggle('open');
+      btn.classList.toggle('open', isOpen);
+      btn.setAttribute('aria-expanded', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    }
+
+    window.closeMobileMenu = function() {
+      menu.classList.remove('open');
+      btn.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    };
+
+    btn.addEventListener('click', toggleMenu);
+
+    function syncAuthMobile() {
+      const authBtn   = document.getElementById('navAuthBtn');
+      const userBtn   = document.getElementById('navUserBtn');
+      const logoutBtn = document.getElementById('navLogoutBtn');
+      const mAuthBtn  = document.getElementById('mobileAuthBtn');
+      const mUserBtn  = document.getElementById('mobileUserBtn');
+      const mLogoutBtn= document.getElementById('mobileLogoutBtn');
+      if (!mAuthBtn) return;
+      mAuthBtn.style.display = authBtn ? authBtn.style.display : '';
+      if (userBtn)   { mUserBtn.style.display = userBtn.style.display; mUserBtn.textContent = userBtn.textContent; }
+      if (logoutBtn) { mLogoutBtn.style.display = logoutBtn.style.display; }
+      mLogoutBtn.addEventListener('click', function() { logoutBtn && logoutBtn.click(); closeMobileMenu(); });
+    }
+
+    document.addEventListener('DOMContentLoaded', syncAuthMobile);
+
+    window.addEventListener('resize', function() {
+      if (window.innerWidth > 768) closeMobileMenu();
+    });
+  })();
+</script>
+
+</body>
+</html>
